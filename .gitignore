@@ -1,5 +1,5 @@
-# Brainstorming session files
-docs/.superpowers/
+# Claude / Superpowers tool artifacts
+.superpowers/
 
 # User-local Claude settings (machine-specific)
 **/.claude/settings.local.json

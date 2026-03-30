@@ -1,0 +1,36 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[docs] Before modifying files: have you loaded vault context for this task? If not, invoke docs:context first.'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[docs] Done checklist: (1) tests pass? (2) linting passes? (3) changes reviewed for quality + roadmap alignment? (4) inline docs updated? (5) docs:review completed? (6) claude-context.md updated? — If claiming work is complete, invoke superpowers:verification-before-completion first.'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/scripts/validate-frontmatter.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
