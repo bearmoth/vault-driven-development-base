@@ -1,0 +1,15 @@
+# Brainstorming session files
+docs/.superpowers/
+
+# User-local Claude settings (machine-specific)
+**/.claude/settings.local.json
+
+# Obsidian community plugins (each developer installs their own)
+docs/.obsidian/plugins/
+
+# Obsidian UI session state (changes on every open, not useful as committed config)
+docs/.obsidian/workspace.json
+docs/.obsidian/workspace-mobile.json
+
+# OS
+.DS_Store
