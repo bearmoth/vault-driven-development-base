@@ -17,6 +17,10 @@ The `docs/` directory is an Obsidian vault and the **single source of truth** fo
 - When a spec moves to `implemented`, update `claude-context.md` and link the PR via `impl-pr`.
 - Domains are defined in `claude-context.md`. Propose new ones before using them; don't invent silently.
 
+## Reading Large Files
+
+When reading large files, run `wc -l` first to check the line count. If the file is over 2,000 lines, use the `offset` and `limit` parameters on the Read tool to read chunks rather than attempting to read the entire file at once.
+
 ## Inline Documentation
 
 - Maintain JSDoc / RustDoc / language-appropriate inline docs on all public APIs.
