@@ -8,7 +8,7 @@ context: on-demand
 related: ["[[claude-context]]", "[[workflow]]", "[[glossary]]"]
 tags: [type/reference, status/stable, domain/meta]
 created: 2026-03-30
-updated: 2026-03-30
+updated: 2026-04-01
 ---
 
 ## Overview
@@ -38,11 +38,7 @@ See [[glossary]] for definitions of `seed`, `developing`, `fleshed-out`, and `pa
 *Well-understood ideas not on the current roadmap. These actively inform adjacent design
 decisions — consult them before speccing related features.*
 
-<!-- Add entries here when a concept reaches status: parked:
-- [[concept-slug]] — one-line description; relevant to: [domains it influences]
--->
-
-*(none yet)*
+- [[skill-agent-dispatch-pattern]] — skills as orchestrators, agents as specialists; relevant to: extending skills with new checks
 
 ---
 
@@ -62,15 +58,8 @@ decisions — consult them before speccing related features.*
 
 *Browse concepts by the domain they touch.*
 
-<!-- Organise concepts by domain as they accumulate:
-### auth
-- [[concept-slug]] — description
-
-### payments
-- [[concept-slug]] — description
--->
-
-*(no domains populated yet)*
+### meta
+- [[skill-agent-dispatch-pattern]] — orchestration pattern for skill-to-agent dispatch
 
 ---
 
