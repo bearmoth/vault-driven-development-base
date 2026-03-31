@@ -13,7 +13,7 @@ updated: {{date}}
 
 ## Project
 
-> Replace this with a one-paragraph description of what this project is and does. Run `docs:init` to populate this.
+> Replace this with a one-paragraph description of what this project is and does. Run `docs-init` to populate this.
 
 ## Domains
 
@@ -21,6 +21,18 @@ updated: {{date}}
 > Example:
 > - **auth** — user authentication + sessions
 > - **infra** — deployment + ops
+
+## Tech Stack
+
+> Key languages, frameworks, and tools. Include the commands Claude needs to run.
+>
+> **Language / runtime:** e.g. Node 20, Python 3.12, Rust stable
+> **Key frameworks:** e.g. React, FastAPI, Bevy
+>
+> **Commands:**
+> - Test: `npm test`
+> - Lint: `npm run lint`
+> - Build: `npm run build`
 
 ## Current Focus
 
@@ -38,4 +50,5 @@ updated: {{date}}
 
 ## Architecture Overview
 
-> High-level description of the system shape, or a link to a canvas diagram.
+See [[architecture]] for current system shape, component map, data flow, and external
+dependencies. Update that document (not this section) when the architecture changes.

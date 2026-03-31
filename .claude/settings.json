@@ -6,7 +6,16 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '[docs] Before modifying files: have you loaded vault context for this task? If not, invoke docs:context first.'"
+            "command": "echo '[docs] Before modifying files: have you loaded vault context for this task? If not, invoke docs-context first.'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"$TOOL_INPUT\" | python3 -c \"\nimport sys, json\ntry:\n    data = json.load(sys.stdin)\n    cmd = data.get('command', '')\n    if 'git commit' in cmd:\n        print('[docs] Pre-commit: which reference docs, user-docs, or guides describe the behaviour you just changed? Are they updated in this commit?')\nexcept Exception:\n    pass\n\" 2>/dev/null || true"
           }
         ]
       }

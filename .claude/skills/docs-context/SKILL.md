@@ -6,7 +6,7 @@ description: >
   related specs before touching any code or docs.
 ---
 
-# docs:context — Load Vault Context
+# docs-context — Load Vault Context
 
 Load the vault context relevant to the current task. Do this before writing any code or docs.
 
@@ -15,7 +15,7 @@ Load the vault context relevant to the current task. Do this before writing any 
 Read `docs/meta/claude-context.md` in full.
 
 Note:
-- The project description and tech stack
+- The project description and tech stack (including test, lint, and build commands)
 - All defined domains and what they cover
 - What is currently in focus
 - All active specs (read any that are relevant to the current task)
@@ -30,21 +30,29 @@ Based on the task at hand, which domains does it touch? List them — this scope
 Search for notes matching the relevant domains. Prioritise:
 1. Specs with `status: in-progress` or `status: planned` in relevant domains
 2. ADRs with matching domains
-3. Concepts with `maturity: evergreen` or `growing` in relevant domains
+3. Concepts with `maturity: fleshed-out` or `developing` in relevant domains
+4. Concepts with `status: parked` that have a Design Influence section relevant to this task
 
-Run this once per domain identified in Step 2, substituting the actual domain name for `<domain-name>`:
+Run this once per domain identified in Step 2:
 
 ```bash
 grep -rl "domain:.*<domain-name>" docs/ --include="*.md" \
-  | grep -v "docs/superpowers/" | grep -v "docs/templates/"
+  | grep -v "docs/templates/"
 ```
 
 ## Step 4: Read the most relevant notes
 
-Read up to 5 notes most directly relevant to the task. Follow wikilinks one level deep if they point to something you haven't read yet.
+Read up to 5 notes most directly relevant to the task. Follow wikilinks one level deep if
+they point to something you haven't read yet.
+
+Pay attention to:
+- Concepts with `status: parked` — they exist to inform adjacent design decisions
+- ADRs — they explain *why* things are the way they are
 
 ## Step 5: Summarise what you've learned
 
 Before proceeding, form an internal summary:
 - What does the project do?
-- What's currently in progress?
+- What is currently in progress that might be affected?
+- Are there parked concepts or ADRs that should influence this work?
+- What are the test/lint commands needed for verification?

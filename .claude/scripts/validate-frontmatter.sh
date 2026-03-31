@@ -1,7 +1,9 @@
 #!/bin/bash
 # Validates frontmatter on vault notes written by Claude.
-# Reads the Write tool's JSON input from stdin.
-# Exits 0 always — output is injected as a warning into Claude's context.
+# Reads the Write/Edit tool's JSON input from stdin.
+#
+# Hard errors (exit 1): missing `type` or `status` — these break vault queries
+# Soft warnings (exit 0): missing `domain`, `updated`, or other fields
 
 set -euo pipefail
 
@@ -32,17 +34,32 @@ if [[ ! "$REL_PATH" =~ ^docs/.+\.md$ ]]; then exit 0; fi
 if [[ "$REL_PATH" =~ ^docs/templates/ ]]; then exit 0; fi
 if [[ ! -f "$FILE_PATH" ]]; then exit 0; fi
 
-# Check for required frontmatter fields
-MISSING=()
-for FIELD in type status domain updated; do
+HARD_MISSING=()
+SOFT_MISSING=()
+
+# Hard required: type and status — without these vault queries break
+for FIELD in type status; do
     if ! grep -qE "^${FIELD}:" "$FILE_PATH" 2>/dev/null; then
-        MISSING+=("$FIELD")
+        HARD_MISSING+=("$FIELD")
     fi
 done
 
-if [[ ${#MISSING[@]} -gt 0 ]]; then
-    echo "[docs:validate] WARNING: $FILE_PATH is missing required frontmatter: ${MISSING[*]}"
-    echo "[docs:validate] Every vault note needs: type, status, domain, updated"
+# Soft required: domain and updated — important but warn only
+for FIELD in domain updated; do
+    if ! grep -qE "^${FIELD}:" "$FILE_PATH" 2>/dev/null; then
+        SOFT_MISSING+=("$FIELD")
+    fi
+done
+
+if [[ ${#HARD_MISSING[@]} -gt 0 ]]; then
+    echo "[docs:validate] ERROR: $REL_PATH is missing required frontmatter: ${HARD_MISSING[*]}"
+    echo "[docs:validate] Fix before proceeding — type and status are required on all vault notes."
+    exit 1
+fi
+
+if [[ ${#SOFT_MISSING[@]} -gt 0 ]]; then
+    echo "[docs:validate] WARNING: $REL_PATH is missing recommended frontmatter: ${SOFT_MISSING[*]}"
+    echo "[docs:validate] Every vault note should have: type, status, domain, updated"
 fi
 
 exit 0

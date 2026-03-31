@@ -27,6 +27,19 @@ ls docs/decisions/ADR-*.md 2>/dev/null | wc -l
 ```
 Next ADR number = count + 1. Zero-pad to 3 digits (e.g. 001, 002, 012).
 
+## Step 2b: Forward-looking milestone check
+
+**Before writing the ADR**, read `docs/product/roadmap.md`. Does this decision constrain
+or foreclose any planned future milestones or roadmap items?
+
+- If yes: tell the user what is constrained, phrased as: "This decision makes [future goal]
+  harder/impossible because [reason]." Ask whether to proceed or reconsider before
+  continuing to Step 3.
+- If no: proceed — note "No known roadmap conflicts" in the ADR Consequences section.
+
+A decision that works today but forecloses a planned future direction is a problem, not a
+solution. Identify this *before* the ADR is written.
+
 ## Step 3: Create the ADR
 
 - File: `docs/decisions/ADR-<NNN>-<decision-slug>.md`
@@ -46,12 +59,18 @@ Does this decision supersede an existing ADR? If yes:
 - Add `supersedes: "[[ADR-NNN-old-title]]"` to the new ADR's frontmatter
 - Update the old ADR: set `status: deprecated`, add a note at the top linking to the new ADR
 
-## Step 5: Link from claude-context.md
+## Step 5: Link from claude-context.md and decisions index
 
 Add to the Key Decisions section of `docs/meta/claude-context.md`:
 `- [[ADR-NNN-decision-slug]] — one-line outcome`
 
 Also bump the `updated` date in `docs/meta/claude-context.md`.
+
+Add to `docs/decisions/index.md`:
+- Under **Chronological** (newest first): `- [[ADR-NNN-decision-slug]] — one-line outcome *(YYYY-MM-DD)*`
+- Under **By Domain** → relevant domain section: same entry
+
+Bump `updated` on `docs/decisions/index.md`.
 
 ## Step 6: Confirm
 
