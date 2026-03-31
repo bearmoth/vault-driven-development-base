@@ -17,13 +17,14 @@ Verify the following before touching docs:
 1. **Tests pass** — run the project's test suite (command in `claude-context.md` → Tech Stack).
    Do not skip. If tests fail, fix them first.
 2. **Linting passes** — run the project's linter. Fix all errors (warnings are judgment calls).
-3. **Quality review** — read through your changes:
-   - Is the code maintainable? Understandable in 6 months without context?
-   - Does it align with the active milestone and not undermine future ones? Check
-     `docs/product/roadmap.md` — a decision that works for now but forecloses a planned
-     future direction is a problem, not a solution.
-   - Any shortcuts that create future risk? → Create a concept note for the tech debt
-     (`status: parked`, trade-off described in body).
+3. **Quality review** — dispatch the `code-reviewer` agent (Agent tool, `subagent_type: code-reviewer`).
+   Prompt it with:
+   - The diff of your changes (`git show HEAD` for committed work, `git diff --staged` for staged-but-uncommitted work)
+   - A note of what the task was trying to achieve
+
+   The agent checks correctness, security, maintainability, and performance against this project's CLAUDE.md conventions. If it returns NEEDS WORK, fix before proceeding. Any 🔴 blockers are treated as test failures — do not proceed to Area 2.
+
+   Also check: does this decision align with the active milestone and not foreclose planned future directions? Check `docs/product/roadmap.md`. If a shortcut creates future risk, create a concept note for the tech debt (`status: parked`, trade-off in body).
 4. **Inline docs** — did you change any public API signatures? Update them now.
 5. **Living docs audit** — identify every reference doc or user-doc that describes behaviour
    you changed. List them explicitly. Verify each is current. This step is not optional —

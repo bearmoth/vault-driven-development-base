@@ -10,95 +10,69 @@ description: >
 
 Audit the vault for drift, orphans, and stale content. Produce a prioritised report.
 
-## Step 1: Find orphaned notes
+## Step 1: Dispatch parallel scan agents
 
-A note is orphaned if no other vault note links to it (zero inbound wikilinks).
+These five scans are independent. Dispatch all five in a single message (parallel Agent tool calls):
 
-```bash
-find docs -name "*.md" \
-  | grep -v "docs/templates/" \
-  | grep -v "docs/meta/claude-context.md"
+**Agent A — Orphaned notes** (`subagent_type: Explore`):
+```
+Scan the vault at docs/ for orphaned notes — notes with zero inbound wikilinks from other vault notes.
+
+For each .md file (excluding docs/templates/), check whether its slug appears as a [[wikilink]] in any other note.
+
+These notes are intentionally standalone and must NOT be flagged as orphans:
+- All index pages (*/index.md)
+- docs/meta/claude-context.md, docs/meta/conventions.md, docs/meta/glossary.md
+- docs/product/roadmap.md
+- docs/reference/architecture.md, docs/reference/domain-glossary.md
+- docs/README.md
+
+Return a list of orphan candidates with their path and last `updated:` date.
 ```
 
-For each note filename (without extension), check whether it appears as a wikilink in any other note:
-```bash
-grep -rl "note-slug" docs --include="*.md"
+**Agent B — Stale statuses** (`subagent_type: Explore`):
+```
+Scan docs/ for notes where status likely doesn't match reality.
+
+Run:
+  grep -rl "status: ideating\|status: planned\|status: in-progress" docs --include="*.md" | grep -v docs/templates/
+
+For each result, read the note and assess whether the status is plausible given the note's content and the current vault state. Return a list of suspects with your reasoning.
 ```
 
-Collect all notes with zero inbound links. These are orphan candidates.
-(Note: index pages and some reference notes are intentionally standalone — use judgment.)
+**Agent C — Overdue reviews** (`subagent_type: Explore`):
 
-## Step 2: Find stale statuses
+*(Before dispatching, substitute today's date for `{{TODAY}}` in the prompt below.)*
 
-Look for notes where `status` likely doesn't match reality:
+```
+Find vault notes not updated recently.
 
-```bash
-grep -rl "status: ideating\|status: planned\|status: in-progress" docs \
-  --include="*.md" \
-  | grep -v "docs/templates/"
+Run:
+  grep -r "^updated:" docs --include="*.md" | grep -v docs/templates/ | sort -t: -k2
+
+Today is {{TODAY}}. Return all notes with updated dates older than 60 days before that date. Include path and date.
 ```
 
-Review each and assess whether the status is accurate.
+**Agent D — Quietly-implemented concepts** (`subagent_type: Explore`):
+```
+Find concept notes (type: concept) with status: ideating, maturity: seed, or maturity: developing that may have been quietly implemented.
 
-## Step 3: Find overdue reviews
+Run:
+  grep -rl "type: concept" docs --include="*.md"
 
-Find notes not updated recently:
+Then find all specs with status: implemented.
 
-```bash
-grep -r "^updated:" docs --include="*.md" \
-  | grep -v "docs/templates/" \
-  | sort -t: -k2
+Cross-reference: flag any concept whose subject matter corresponds to an implemented spec. Return candidates with path and the corresponding spec.
 ```
 
-Flag notes with `updated` dates older than 60 days for manual review.
-
-## Step 4: Find quietly-implemented concepts
-
-Look for concept notes with `status: ideating`, `maturity: seed`, or `maturity: developing`
-that have corresponding specs now at `status: implemented`:
-
-```bash
-grep -rl "type: concept" docs --include="*.md"
+**Agent E — Index, coverage, and freshness** (`subagent_type: vault-auditor`):
+```
+Run your full audit: index page completeness, user-doc coverage, architecture doc freshness, and invalid frontmatter values. Return findings in your standard report format.
 ```
 
-Cross-reference with implemented specs to find promotable concepts.
+## Step 2: Collect results and produce audit report
 
-## Step 4b: Check index pages are current
-
-Each content directory has an index page that must reflect current contents:
-- `docs/concepts/index.md`
-- `docs/specs/index.md`
-- `docs/decisions/index.md`
-- `docs/guides/index.md`
-- `docs/user-docs/index.md`
-- `docs/reference/index.md`
-
-For each index page, check that every note in the directory has an entry. Flag any
-missing entries as issues in the audit report.
-
-## Step 4c: Check user-doc coverage
-
-Every spec with `impl-pr` set (i.e. implemented features) should have a corresponding
-user-doc in `docs/user-docs/`, unless the feature is internal-only (documented in an ADR).
-
-```bash
-grep -rl "impl-pr:" docs/specs --include="*.md"
-```
-
-For each implemented spec, check whether a user-doc exists for it. Flag gaps.
-
-## Step 4d: Check architecture doc freshness
-
-```bash
-grep "^updated:" docs/reference/architecture.md 2>/dev/null | head -1
-```
-
-Flag if `docs/reference/architecture.md` has not been updated in more than 90 days, or
-if significant specs have been implemented since its last update date.
-
-## Step 5: Produce audit report
-
-Output a structured report:
+Wait for all five agents to complete. Merge their findings into the structured report:
 
 ```
 ## Vault Audit — [date]
@@ -115,25 +89,25 @@ Output a structured report:
 ### Concepts to Promote (N)
 - docs/concepts/idea.md — related spec is implemented; consider promoting
 
-### Index Pages Out of Date (N)
-- docs/concepts/index.md — missing entry for: concept-slug
-- docs/specs/index.md — missing entry for: spec-slug
-- docs/decisions/index.md — missing entry for: ADR-NNN-slug
-- docs/user-docs/index.md — missing entry for: user-doc-slug
+### Index Pages (N issues)
+- [from vault-auditor]
 
-### Missing User-Docs (N)
-- docs/specs/feature-slug.md — impl-pr set but no corresponding user-doc found
+### Missing User-Docs (N issues)
+- [from vault-auditor]
 
-### Architecture Doc (status)
-- Last updated: YYYY-MM-DD — [current / overdue for review]
+### Architecture Doc
+- [from vault-auditor]
+
+### Invalid Frontmatter (N issues)
+- [from vault-auditor]
 
 ### Recommended Actions (prioritised)
 1. [Highest priority fix]
 2. [Second priority]
 ```
 
-## Step 6: Fix or defer
+## Step 3: Fix or defer
 
 For each finding, either:
 - **Fix now** — update the note (status, links, content)
-- **Defer** — Create a concept note with `type: concept, status: parked`, tagged with the relevant domain from `docs/meta/claude-context.md`, so it isn't lost
+- **Defer** — Read `docs/meta/claude-context.md` to find the relevant domain, then create a concept note with `type: concept, status: parked` tagged to that domain, so it isn't lost

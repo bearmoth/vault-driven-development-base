@@ -41,6 +41,18 @@ BEFORE claiming any status or expressing satisfaction:
 Skip any step = lying, not verifying
 ```
 
+## Agent verification
+
+For non-trivial completion claims (feature complete, bug fixed, PR ready), after running your own gate function, dispatch the `reality-checker` agent (Agent tool, `subagent_type: reality-checker`) with:
+
+- The claim you are about to make
+- The commands you ran and their output
+- The requirements or acceptance criteria being satisfied
+
+The reality-checker will independently evaluate your evidence and return APPROVED or NEEDS WORK with specific findings. Do not make your completion claim until it returns APPROVED.
+
+Skip agent dispatch only when the sole evidence needed is a file existence check or a single isolated text change. If there is any functional behaviour to verify — commands, outputs, requirements checklists — dispatch. When in doubt, dispatch.
+
 ## Common Failures
 
 | Claim | Requires | Not Sufficient |
