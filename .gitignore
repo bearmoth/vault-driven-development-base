@@ -1,5 +1,6 @@
 # Claude / Superpowers tool artifacts
 .superpowers/
+docs/superpowers/
 
 # User-local Claude settings (machine-specific)
 **/.claude/settings.local.json
