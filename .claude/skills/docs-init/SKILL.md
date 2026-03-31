@@ -13,7 +13,13 @@ The folder structure already exists. Your job is to fill it in.
 
 ## Step 1: Gather project information
 
-Ask the user for the following, one at a time:
+Before anything else, ask:
+
+**Is this a new project, or are you adopting this template into an existing codebase?**
+- **New project**: proceed with all steps below.
+- **Adopting** (existing codebase already has its own README): skip Step 3. At Step 7, note which README sections the user should add manually if missing.
+
+Then ask the following, one at a time:
 1. **Project name** — what should the project be called?
 2. **Project description** — one paragraph: what does this project do and why does it exist?
 3. **Initial domains** — what are the main areas of this system? (e.g. auth, payments, infra). Aim for 3–7.
@@ -29,9 +35,21 @@ Ask the user for the following, one at a time:
 
 Replace the placeholder `[Project Name]` and description paragraph in `CLAUDE.md` with real values.
 
-## Step 3: Update README.md
+## Step 3: Update README.md and docs/README.md
 
-Replace `[Project Name]` and the description in `README.md` with real values.
+*(Skip this step if the user indicated "adopting" in Step 1.)*
+
+In `README.md`:
+- Replace `[Project Name]` in the H1 with the real project name
+- Replace the description blockquote with the real one-sentence description
+- In **Quick Start → Install**, replace `[install command]` with the install command from the tech stack (Step 1). If unknown, leave as placeholder and note it in Step 7.
+- In **Quick Start → First run**, replace with the test command from Step 1. Use the test command if one exists; otherwise the primary run command.
+- In **Usage**, write 1–2 sentences describing the system shape and who uses it. Brief is fine — it seeds the section; the user will refine it.
+- Leave Prerequisites, Contributing, License, and the badge comment as placeholders.
+
+In `docs/README.md`:
+- Replace `[Project Name]` in the H1 with the real project name
+- Replace the bracketed description placeholder with the real one-sentence description
 
 ## Step 4: Populate claude-context.md
 
@@ -92,6 +110,6 @@ Tell the user:
   - `docs-new` — create specs, TDDs, guides, user-docs, reference docs, milestones
   - `docs-review` — close any task (non-negotiable)
   - `docs-audit` — periodic vault health check
-- Browsable vault entry points: `docs/concepts/index.md`, `docs/specs/index.md`,
-  `docs/decisions/index.md`, `docs/guides/index.md`, `docs/user-docs/index.md`,
-  `docs/reference/index.md`
+- Browsable vault entry points: `docs/concepts/index.md`, `docs/specs/index.md`, `docs/decisions/index.md`, `docs/guides/index.md`, `docs/user-docs/index.md`, `docs/reference/index.md`
+
+If this was an **adoption** (existing project), remind the user which sections to add to their existing `README.md` if missing: Quick Start, Usage, Documentation (→ docs/), Development Workflow, Contributing, License.
