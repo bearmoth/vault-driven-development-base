@@ -13,11 +13,11 @@ updated: 2026-03-31
 
 ## Overview
 
-This is the landing page for all user-facing documentation in the vault. User-docs describe **how to use the product** from the perspective of the people using it — end users, API consumers, or administrators.
+Welcome to the [Project Name] documentation. Here you'll find guides for using the product, integrating via the API, and configuring the system as an administrator.
 
-**User-docs are always current.** They must be updated in the same commit as any change to user-facing behaviour. A user-doc that has drifted from the product is actively misleading.
+Browse by audience below, or jump straight to a feature area.
 
-See [[conventions]] → Living Documentation Contract for the update rules.
+*Maintainers: keep this page current. Update it in the same commit as any user-facing change. See [[conventions]] → Living Documentation Contract.*
 
 ---
 
