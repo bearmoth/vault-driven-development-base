@@ -1,1 +1,8 @@
-{}
+{
+  "defaultViewMode": "preview",
+  "vimMode": false,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "attachmentFolderPath": "assets",
+  "alwaysUpdateLinks": true
+}
