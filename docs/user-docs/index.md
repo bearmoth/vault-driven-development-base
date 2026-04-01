@@ -13,13 +13,9 @@ updated: 2026-03-31
 
 ## Overview
 
-This is the landing page for all user-facing documentation in the vault. User-docs
-describe **how to use the product** from the perspective of the people using it —
-end users, API consumers, or administrators.
+This is the landing page for all user-facing documentation in the vault. User-docs describe **how to use the product** from the perspective of the people using it — end users, API consumers, or administrators.
 
-**User-docs are always current.** They must be updated in the same commit as any
-change to user-facing behaviour. A user-doc that has drifted from the product is
-actively misleading.
+**User-docs are always current.** They must be updated in the same commit as any change to user-facing behaviour. A user-doc that has drifted from the product is actively misleading.
 
 See [[conventions]] → Living Documentation Contract for the update rules.
 

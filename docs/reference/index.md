@@ -13,13 +13,9 @@ updated: 2026-03-30
 
 ## Overview
 
-This is the landing page for all reference documentation in the vault. Reference docs
-describe **the current state of the system** — APIs, schemas, configuration, data models,
-and other lookup tables.
+This is the landing page for all reference documentation in the vault. Reference docs describe **the current state of the system** — APIs, schemas, configuration, data models, and other lookup tables.
 
-**Reference docs are always current.** They do not describe intended or planned state.
-When an implementation changes the system, the relevant reference doc is updated in
-the same PR. A reference doc that has drifted from reality is an active liability.
+**Reference docs are always current.** They do not describe intended or planned state. When an implementation changes the system, the relevant reference doc is updated in the same PR. A reference doc that has drifted from reality is an active liability.
 
 ---
 

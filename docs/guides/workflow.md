@@ -20,9 +20,7 @@ Ideation → Spec & Plan → [TDD?] → Implement → [Refine?] → Verify → C
    ↑_______________________________________________________________|
 ```
 
-Every stage has a defined skill to invoke, exit criteria, and a clear human gate before
-proceeding. **Claude never decides a stage is complete and moves to the next one.** Each
-transition requires an explicit human decision.
+Every stage has a defined skill to invoke, exit criteria, and a clear human gate before proceeding. **Claude never decides a stage is complete and moves to the next one.** Each transition requires an explicit human decision.
 
 ---
 
@@ -32,11 +30,9 @@ transition requires an explicit human decision.
 
 **Skill:** `docs-context`
 
-Read `docs/meta/claude-context.md`, surface relevant specs, ADRs, and [[glossary#parked|parked]]
-concepts that might influence the work. Note the tech stack commands for later verification.
+Read `docs/meta/claude-context.md`, surface relevant specs, ADRs, and [[glossary#parked|parked]] concepts that might influence the work. Note the tech stack commands for later verification.
 
-**Exit criteria:** You can answer — what is in progress right now, and does this task
-conflict with or depend on it?
+**Exit criteria:** You can answer — what is in progress right now, and does this task conflict with or depend on it?
 
 ---
 
@@ -46,10 +42,7 @@ conflict with or depend on it?
 
 **Skill:** `docs-ideate`
 
-Creates or updates a [[glossary#concept|concept]] note in `docs/concepts/`. Concepts accumulate
-understanding over time via an Exploration Log — dated entries added inline, newest first. Related
-ideas are connected via [[glossary#wikilink|wikilinks]]; the graph view and backlinks panel make
-the concept network navigable without separate session files.
+Creates or updates a [[glossary#concept|concept]] note in `docs/concepts/`. Concepts accumulate understanding over time via an Exploration Log — dated entries added inline, newest first. Related ideas are connected via [[glossary#wikilink|wikilinks]]; the graph view and backlinks panel make the concept network navigable without separate session files.
 
 **Maturity progression** (see [[glossary]] for definitions):
 
@@ -59,15 +52,11 @@ the concept network navigable without separate session files.
 | `developing` | Shape is forming, actively being explored |
 | `fleshed-out` | Stable mental model; ready to inform adjacent design |
 
-A concept at `fleshed-out` + `status: parked` is the canonical form for a **future feature
-consideration** — well understood, not on the roadmap, but actively considered when designing
-related work. Claude surfaces these during `docs-context` when relevant.
+A concept at `fleshed-out` + `status: parked` is the canonical form for a **future feature consideration** — well understood, not on the roadmap, but actively considered when designing related work. Claude surfaces these during `docs-context` when relevant.
 
-**Human gate:** Claude never promotes a concept to a spec. When you decide an idea is ready
-to commit to, you say so and invoke `docs-new`.
+**Human gate:** Claude never promotes a concept to a spec. When you decide an idea is ready to commit to, you say so and invoke `docs-new`.
 
-**Exit criteria:** The idea is captured, linked, and open questions are explicit. You are
-not expected to resolve them here.
+**Exit criteria:** The idea is captured, linked, and open questions are explicit. You are not expected to resolve them here.
 
 ---
 
@@ -75,14 +64,11 @@ not expected to resolve them here.
 
 **Purpose:** Turn a concept into a buildable contract with verifiable requirements.
 
-**Skill:** `docs-new` (create spec), `docs-decide` (for design decisions), `docs-new` again
-(create milestone if needed)
+**Skill:** `docs-new` (create spec), `docs-decide` (for design decisions), `docs-new` again (create milestone if needed)
 
 ### 2a. Create the spec
 
-A spec is not a description — it is a **contract**. Every requirement must be written in
-[[glossary#ears|EARS]] format and be directly testable. If you cannot write an acceptance
-test for a requirement, rewrite the requirement.
+A spec is not a description — it is a **contract**. Every requirement must be written in [[glossary#ears|EARS]] format and be directly testable. If you cannot write an acceptance test for a requirement, rewrite the requirement.
 
 The spec template enforces three structural sections:
 
@@ -90,8 +76,7 @@ The spec template enforces three structural sections:
 - **Task Breakdown** — ordered implementation tasks, each mapped to REQ-IDs
 - **Acceptance Criteria** — one checkbox per REQ, verified at Stage 4
 
-Incomplete specs produce incomplete implementations. `docs-new` will not finish until all
-three sections are properly populated.
+Incomplete specs produce incomplete implementations. `docs-new` will not finish until all three sections are properly populated.
 
 ### 2b. Record decisions
 
@@ -100,24 +85,17 @@ Don't defer.
 
 ### 2c. Link to milestone
 
-Check `docs/product/roadmap.md`. Does this spec belong to the active milestone? If no
-milestone exists yet, create one with `docs-new`. Add the spec to the milestone's `specs:`
-list and add a link in `claude-context.md` → Active Specs.
+Check `docs/product/roadmap.md`. Does this spec belong to the active milestone? If no milestone exists yet, create one with `docs-new`. Add the spec to the milestone's `specs:` list and add a link in `claude-context.md` → Active Specs.
 
-**Human gate:** Implementation does not begin until you review and approve the spec.
-"Looks good, let's build it" is the gate.
+**Human gate:** Implementation does not begin until you review and approve the spec. "Looks good, let's build it" is the gate.
 
-**Exit criteria:** Requirements are EARS-formatted and testable. Task breakdown is ordered
-and REQ-mapped. Acceptance criteria are complete and unambiguous. No open questions that
-would block implementation.
+**Exit criteria:** Requirements are EARS-formatted and testable. Task breakdown is ordered and REQ-mapped. Acceptance criteria are complete and unambiguous. No open questions that would block implementation.
 
 ---
 
 ## Stage 2b: Technical Design (optional)
 
-**Purpose:** For complex or architecturally significant features, describe *how* the system
-will be built before committing to EARS requirements. Surfaces technical trade-offs and
-design decisions *before* implementation begins.
+**Purpose:** For complex or architecturally significant features, describe *how* the system will be built before committing to EARS requirements. Surfaces technical trade-offs and design decisions *before* implementation begins.
 
 **Skill:** `docs-new` (type: tdd)
 
@@ -126,27 +104,21 @@ design decisions *before* implementation begins.
 - Multiple implementation approaches exist with meaningful trade-offs
 - The spec requirements are likely to change once the technical approach is understood
 
-**When to skip it:** Simple features, single-file changes, well-understood patterns.
-Do not require a TDD — offer it.
+**When to skip it:** Simple features, single-file changes, well-understood patterns. Do not require a TDD — offer it.
 
-A TDD covers: proposed approach, module/component design, data flow, key trade-offs, and
-alternatives considered. Significant trade-offs in the TDD → `docs-decide` immediately.
+A TDD covers: proposed approach, module/component design, data flow, key trade-offs, and alternatives considered. Significant trade-offs in the TDD → `docs-decide` immediately.
 
-**TDDs are living during Stage 3.** When implementation diverges from the TDD, update the
-TDD in Stage 3b. A TDD that doesn't match what was built is misleading.
+**TDDs are living during Stage 3.** When implementation diverges from the TDD, update the TDD in Stage 3b. A TDD that doesn't match what was built is misleading.
 
-**Human gate:** Same as Stage 2 — implementation does not begin until the human approves.
-If a TDD was written, it is reviewed alongside the spec.
+**Human gate:** Same as Stage 2 — implementation does not begin until the human approves. If a TDD was written, it is reviewed alongside the spec.
 
-**Exit criteria:** Technical approach is agreed. No open questions that would block
-implementation. Significant design decisions have ADRs.
+**Exit criteria:** Technical approach is agreed. No open questions that would block implementation. Significant design decisions have ADRs.
 
 ---
 
 ## Stage 3: Implement
 
-**Purpose:** Build the spec, one task at a time. The spec's task list is the single source
-of truth for progress.
+**Purpose:** Build the spec, one task at a time. The spec's task list is the single source of truth for progress.
 
 **Skill:** None dedicated — follow the loop below strictly.
 
@@ -154,9 +126,7 @@ of truth for progress.
 
 Check the spec's `depends-on` field. For each listed dependency:
 - Is the dependency spec `status: implemented`? ✓ proceed
-- Is it `status: in-progress` or `status: planned`? **Stop** — unblock the dependency first,
-  or explicitly decide to proceed with known risk (document the risk as a concept note,
-  `status: parked`)
+- Is it `status: in-progress` or `status: planned`? **Stop** — unblock the dependency first, or explicitly decide to proceed with known risk (document the risk as a concept note, `status: parked`)
 
 Do not begin implementation on a spec with unmet dependencies without explicit human sign-off.
 
@@ -173,8 +143,7 @@ For each unchecked task in the spec's task breakdown:
 
 ### Mid-task decisions
 
-Significant architectural decision encountered during implementation → **stop, run
-`docs-decide`**, then continue. Do not defer.
+Significant architectural decision encountered during implementation → **stop, run `docs-decide`**, then continue. Do not defer.
 
 ### Spec status
 
@@ -187,8 +156,7 @@ Significant architectural decision encountered during implementation → **stop,
 
 ## Stage 3b: Refine (when needed)
 
-**Purpose:** When implementation reveals that the spec was wrong, update the spec before
-continuing — not after, and not by quietly diverging from it.
+**Purpose:** When implementation reveals that the spec was wrong, update the spec before continuing — not after, and not by quietly diverging from it.
 
 **Skill:** `docs-decide` (if the divergence involves a significant design decision)
 
@@ -201,16 +169,13 @@ This stage is not always needed, but when it is, it is mandatory.
 
 **What to do:**
 1. **Stop** — do not continue implementing against a spec you know is wrong
-2. **Update the spec** — revise the affected requirements, task breakdown, and acceptance
-   criteria to reflect reality. Bump `updated`.
+2. **Update the spec** — revise the affected requirements, task breakdown, and acceptance criteria to reflect reality. Bump `updated`.
 3. **Record the decision** — if the change is significant, run `docs-decide` to create an ADR
 4. **Get human confirmation** — show the diff to the user before resuming Stage 3
 
-> "Quietly diverging from the spec" is the same as having no spec. The spec is only
-> useful if it matches what was actually built.
+> "Quietly diverging from the spec" is the same as having no spec. The spec is only useful if it matches what was actually built.
 
-**Exit criteria:** The spec accurately reflects the plan going forward. Human has confirmed
-the change.
+**Exit criteria:** The spec accurately reflects the plan going forward. Human has confirmed the change.
 
 ---
 
@@ -227,14 +192,11 @@ the change.
    - If a criterion has no coverage, write the test or document why it's not applicable
 4. **Quality review:**
    - Is the code maintainable and understandable without context?
-   - Does it align with the active milestone *and not undermine future ones*? Check
-     `docs/product/roadmap.md` — a decision that works now but forecloses a planned future
-     direction is a problem.
+   - Does it align with the active milestone *and not undermine future ones*? Check `docs/product/roadmap.md` — a decision that works now but forecloses a planned future direction is a problem.
    - Any shortcuts that create future risk? → concept note, `status: parked`
 5. **Update inline docs** for any changed public APIs.
 
-**Exit criteria:** All acceptance criteria checked off. Tests and lint pass. Inline docs current.
-Evidence in hand before claiming done.
+**Exit criteria:** All acceptance criteria checked off. Tests and lint pass. Inline docs current. Evidence in hand before claiming done.
 
 ---
 
@@ -254,8 +216,7 @@ Evidence in hand before claiming done.
 4. Check the milestone: are all specs `implemented`? If yes, set milestone `status: implemented`.
 5. Run `docs-audit` if this is the last spec in a milestone.
 
-**Exit criteria:** Vault reflects reality. No stale statuses. `claude-context.md` is accurate
-for the next session.
+**Exit criteria:** Vault reflects reality. No stale statuses. `claude-context.md` is accurate for the next session.
 
 ---
 
@@ -281,8 +242,7 @@ for the next session.
 
 ## EARS Quick Reference
 
-EARS (Easy Approach to Requirements Syntax) — structured format for unambiguous, testable
-requirements. See [[glossary]] for full definitions.
+EARS (Easy Approach to Requirements Syntax) — structured format for unambiguous, testable requirements. See [[glossary]] for full definitions.
 
 | Pattern | Template |
 |---|---|
@@ -292,8 +252,7 @@ requirements. See [[glossary]] for full definitions.
 | Conditional | IF `<condition>`, THEN the `<system>` shall `<response>`. |
 | Option | WHERE `<feature is enabled>`, the `<system>` shall `<response>`. |
 
-**Rules:** "shall" = mandatory. Avoid untestable words: "fast", "reliable", "user-friendly".
-One requirement = one sentence. Every REQ must appear in Acceptance Criteria.
+**Rules:** "shall" = mandatory. Avoid untestable words: "fast", "reliable", "user-friendly". One requirement = one sentence. Every REQ must appear in Acceptance Criteria.
 
 ## Related
 

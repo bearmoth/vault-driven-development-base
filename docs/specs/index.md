@@ -13,9 +13,7 @@ updated: 2026-03-31
 
 ## Overview
 
-This is the browsable index of all specs and TDDs in the vault. Specs are buildable
-contracts with testable EARS requirements. TDDs describe the technical design
-approach for complex features.
+This is the browsable index of all specs and TDDs in the vault. Specs are buildable contracts with testable EARS requirements. TDDs describe the technical design approach for complex features.
 
 For currently active specs, also see [[claude-context]] → Active Specs.
 

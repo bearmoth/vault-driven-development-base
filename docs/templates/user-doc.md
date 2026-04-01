@@ -23,14 +23,12 @@ status:
   stable     — accurate and current; MUST be updated when the system changes
   deprecated — feature removed or significantly changed; kept for historical reference
 
-User-docs are living documents. A user-doc that drifts from reality is
-actively misleading. Update in the same commit as any change to user-facing behaviour.
+User-docs are living documents. A user-doc that drifts from reality is actively misleading. Update in the same commit as any change to user-facing behaviour.
 -->
 
 ## Overview
 
-What does this feature do, in one paragraph written for the intended audience?
-No implementation details — describe the user experience, not the machinery.
+What does this feature do, in one paragraph written for the intended audience? No implementation details — describe the user experience, not the machinery.
 
 ## Who is this for?
 
@@ -48,8 +46,7 @@ Step-by-step instructions. Write at the level of the audience above.
 
 ## Examples
 
-Concrete examples. Include screenshots, sample requests/responses, or code snippets
-as appropriate for the audience.
+Concrete examples. Include screenshots, sample requests/responses, or code snippets as appropriate for the audience.
 
 ```
 <!-- example goes here -->

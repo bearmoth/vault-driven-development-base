@@ -35,8 +35,7 @@ Why is this worth capturing? What problem does it solve or opportunity does it r
 
 ## Design Influence
 
-How should this concept be considered when designing related features? What constraints or
-opportunities does it create for adjacent work? (Leave blank for `seed` concepts.)
+How should this concept be considered when designing related features? What constraints or opportunities does it create for adjacent work? (Leave blank for `seed` concepts.)
 
 ## Open Questions
 

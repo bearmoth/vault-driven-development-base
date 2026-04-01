@@ -13,9 +13,7 @@ updated: 2026-03-31
 
 ## Overview
 
-This is the browsable index of all Architecture Decision Records (ADRs) in the vault.
-ADRs are immutable records of significant technical decisions — what was decided, why,
-what alternatives were considered, and what consequences follow.
+This is the browsable index of all Architecture Decision Records (ADRs) in the vault. ADRs are immutable records of significant technical decisions — what was decided, why, what alternatives were considered, and what consequences follow.
 
 ADRs are never edited. If a decision changes, a new ADR supersedes the old one.
 See [[conventions]] → ADR Supersession for the protocol.
