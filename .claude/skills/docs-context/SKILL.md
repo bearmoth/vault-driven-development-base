@@ -42,8 +42,7 @@ grep -rl "domain:.*<domain-name>" docs/ --include="*.md" \
 
 ## Step 4: Read the most relevant notes
 
-Read up to 5 notes most directly relevant to the task. Follow wikilinks one level deep if
-they point to something you haven't read yet.
+Read up to 5 notes most directly relevant to the task. Follow wikilinks one level deep if they point to something you haven't read yet.
 
 Pay attention to:
 - Concepts with `status: parked` — they exist to inform adjacent design decisions

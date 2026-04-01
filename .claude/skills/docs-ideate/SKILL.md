@@ -7,16 +7,14 @@ description: >
 
 # docs-ideate — Capture an Idea
 
-Capture a concept or idea in the vault before it becomes a spec. This skill never promotes
-an idea to a spec — that is always an explicit human decision.
+Capture a concept or idea in the vault before it becomes a spec. This skill never promotes an idea to a spec — that is always an explicit human decision.
 
 ## Step 1: Determine mode
 
 Is this a **new** idea or are we **revisiting** an existing concept?
 
 - **New**: Ask the user for details (Step 2).
-- **Revisiting**: Find the existing note in `docs/concepts/`, read it in full, then proceed
-  to Step 3 to add an Exploration Log entry and update the body.
+- **Revisiting**: Find the existing note in `docs/concepts/`, read it in full, then proceed to Step 3 to add an Exploration Log entry and update the body.
 
 ## Step 2: Gather idea details (new concepts only)
 
@@ -26,13 +24,11 @@ Ask the user:
 3. **Why does it matter?** — why is this worth capturing?
 4. **Domain(s)** — which domains does it touch? (must exist in `docs/meta/claude-context.md`)
 5. **Open questions** — what is still unclear?
-6. **Design influence** — are there adjacent features or systems this should inform, even if
-   never built? (Can be left blank for seed-stage ideas.)
+6. **Design influence** — are there adjacent features or systems this should inform, even if never built? (Can be left blank for seed-stage ideas.)
 
 ## Step 3: Find related existing notes
 
-Search `docs/concepts/` for existing concepts that are related.
-Also check `docs/specs/` for any specs this idea connects to or might be informed by.
+Search `docs/concepts/` for existing concepts that are related. Also check `docs/specs/` for any specs this idea connects to or might be informed by.
 
 ## Step 4: Create or update the concept note
 
@@ -66,8 +62,7 @@ This keeps the index browsable as the concept library grows.
 
 ## Step 6: Update claude-context.md if significant
 
-If this idea is meaningfully connected to the current focus:
-`- Exploring: [[idea-name]]` under Current Focus
+If this idea is meaningfully connected to the current focus: `- Exploring: [[idea-name]]` under Current Focus
 
 Bump `updated` in `docs/meta/claude-context.md`.
 

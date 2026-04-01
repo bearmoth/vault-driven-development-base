@@ -33,8 +33,7 @@ For **specs** also ask:
 - Which concept note does this promote from? (Link the concept → update its status to `planned`.)
 - Which milestone does this belong to? (Optional.)
 - Does it depend on other specs?
-- Does this spec introduce or rely on domain-specific terminology? If yes, ensure terms are
-  defined in `docs/reference/domain-glossary.md`.
+- Does this spec introduce or rely on domain-specific terminology? If yes, ensure terms are defined in `docs/reference/domain-glossary.md`.
 
 For **tdds** also ask:
 - Which spec does this TDD support? (Required — TDDs must link to a spec.)
@@ -57,8 +56,7 @@ For **user-docs** also ask:
 - Add wikilinks to related notes in `related` and inline in the body
 
 **For specs**, populate all structural sections before finishing:
-- **Requirements**: EARS format — every requirement must be testable. If requirements are unclear,
-  ask the user to clarify before writing them. See [[glossary]] for EARS patterns.
+- **Requirements**: EARS format — every requirement must be testable. If requirements are unclear, ask the user to clarify before writing them. See [[glossary]] for EARS patterns.
 - **Task Breakdown**: ordered checklist, each task mapped to one or more REQ-IDs
 - **Acceptance Criteria**: one checkbox per REQ, directly derived from the requirements list
 - **Out of Scope**: explicit — prevents scope creep during implementation
@@ -80,8 +78,7 @@ For specs:
 - New reference doc → add entry to `docs/reference/index.md`
 - New milestone → no index page; it's tracked via `docs/product/roadmap.md`
 
-Index pages are browsable landing pages for the vault. Every new note must appear in its
-directory's index page in the same commit.
+Index pages are browsable landing pages for the vault. Every new note must appear in its directory's index page in the same commit.
 
 ## Step 5: Confirm
 

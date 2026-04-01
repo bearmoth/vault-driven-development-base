@@ -12,8 +12,7 @@ updated: {{date}}
 ---
 
 <!--
-This glossary defines domain-specific terms used in this project's code, specs, and ADRs.
-It is distinct from docs/meta/glossary.md, which defines vault vocabulary.
+This glossary defines domain-specific terms used in this project's code, specs, and ADRs. It is distinct from docs/meta/glossary.md, which defines vault vocabulary.
 
 When to add a term:
 - A new spec uses a term that isn't obvious to someone joining the project
@@ -32,8 +31,7 @@ Run docs-init to seed this with terms for your project's domains.
 
 ## Glossary
 
-> Add domain-specific terms here as they emerge from specs and implementation.
-> Keep definitions precise and grounded in how the term is actually used in this codebase.
+> Add domain-specific terms here as they emerge from specs and implementation. Keep definitions precise and grounded in how the term is actually used in this codebase.
 
 <!-- Example structure:
 

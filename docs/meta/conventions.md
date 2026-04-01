@@ -13,8 +13,7 @@ updated: 2026-03-31
 
 ## Code Conventions
 
-> Document project-specific coding standards here (naming, structure, patterns).
-> Do not duplicate language-standard conventions — only document what's project-specific.
+> Document project-specific coding standards here (naming, structure, patterns). Do not duplicate language-standard conventions — only document what's project-specific.
 
 ## Documentation Conventions
 

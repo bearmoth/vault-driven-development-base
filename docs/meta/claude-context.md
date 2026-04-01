@@ -50,5 +50,4 @@ updated: {{date}}
 
 ## Architecture Overview
 
-See [[architecture]] for current system shape, component map, data flow, and external
-dependencies. Update that document (not this section) when the architecture changes.
+See [[architecture]] for current system shape, component map, data flow, and external dependencies. Update that document (not this section) when the architecture changes.

@@ -15,8 +15,7 @@ updated: 2026-03-30
 
 This is the landing page for all guides and runbooks in the vault. Guides describe **how to perform tasks** against the current state of the system. Unlike reference docs, guides are procedure-oriented — they walk a reader through a process step by step.
 
-**Guides must reflect current reality.** When the system changes, the relevant guide
-changes in the same PR. A guide that doesn't match the system is worse than no guide.
+**Guides must reflect current reality.** When the system changes, the relevant guide changes in the same PR. A guide that doesn't match the system is worse than no guide.
 
 ---
 

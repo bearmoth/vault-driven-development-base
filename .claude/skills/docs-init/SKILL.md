@@ -8,8 +8,7 @@ description: >
 
 # docs-init — Project Vault Initialisation
 
-You are personalising this project's Obsidian vault template with real content.
-The folder structure already exists. Your job is to fill it in.
+You are personalising this project's Obsidian vault template with real content. The folder structure already exists. Your job is to fill it in.
 
 ## Step 1: Gather project information
 
@@ -26,10 +25,8 @@ Then ask the following, one at a time:
 4. **Tech stack** — key languages, frameworks, and infrastructure choices.
 5. **Commands** — what commands run tests, lint, and build? (Claude needs these to verify work.)
 6. **Founding decisions** — any significant technical decisions already made? (These will become ADRs.)
-7. **External users** — does this project have external users (end users, API consumers, admins)?
-   If yes, which audiences? (This seeds the user-docs index sections.)
-8. **System shape** — high-level: what kind of system is this? (e.g. web app + API, CLI tool,
-   microservices, library) — seeds the architecture overview.
+7. **External users** — does this project have external users (end users, API consumers, admins)? If yes, which audiences? (This seeds the user-docs index sections.)
+8. **System shape** — high-level: what kind of system is this? (e.g. web app + API, CLI tool, microservices, library) — seeds the architecture overview.
 
 ## Step 2: Update CLAUDE.md
 
@@ -76,8 +73,7 @@ Update `docs/product/roadmap.md`:
 
 ## Step 6b: Initialise index pages and reference stubs
 
-The vault has index pages for each content area and reference stubs that need project-specific
-context. Update each:
+The vault has index pages for each content area and reference stubs that need project-specific context. Update each:
 
 **Index pages** — replace the generic overview sentence with one project-specific sentence:
 - `docs/concepts/index.md` — describe what kinds of concepts this project is likely to explore
@@ -85,15 +81,11 @@ context. Update each:
 - `docs/reference/index.md` — describe what system components will have reference docs
 - `docs/specs/index.md` — describe the feature delivery cadence (milestones, sprints, etc.)
 - `docs/decisions/index.md` — no change needed; generic text is fine
-- `docs/user-docs/index.md` — if the project has external users, replace audience section
-  headings with the real audiences gathered in Step 1 item 7; otherwise add a note that
-  this project is internal-only and user-docs are not maintained
+- `docs/user-docs/index.md` — if the project has external users, replace audience section headings with the real audiences gathered in Step 1 item 7; otherwise add a note that this project is internal-only and user-docs are not maintained
 
 **Reference stubs** — populate with real project content:
-- `docs/reference/architecture.md` — replace placeholder sections with the system shape
-  from Step 1 item 8; add real components, initial data flow description, and known constraints
-- `docs/reference/domain-glossary.md` — seed with 2–5 key domain terms per domain from
-  Step 1 item 3; definitions don't need to be perfect — they will evolve
+- `docs/reference/architecture.md` — replace placeholder sections with the system shape from Step 1 item 8; add real components, initial data flow description, and known constraints
+- `docs/reference/domain-glossary.md` — seed with 2–5 key domain terms per domain from Step 1 item 3; definitions don't need to be perfect — they will evolve
 
 Leave all index entries as `*(none yet)*` — they fill in as the project grows.
 

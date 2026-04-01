@@ -29,16 +29,12 @@ Next ADR number = count + 1. Zero-pad to 3 digits (e.g. 001, 002, 012).
 
 ## Step 2b: Forward-looking milestone check
 
-**Before writing the ADR**, read `docs/product/roadmap.md`. Does this decision constrain
-or foreclose any planned future milestones or roadmap items?
+**Before writing the ADR**, read `docs/product/roadmap.md`. Does this decision constrain or foreclose any planned future milestones or roadmap items?
 
-- If yes: tell the user what is constrained, phrased as: "This decision makes [future goal]
-  harder/impossible because [reason]." Ask whether to proceed or reconsider before
-  continuing to Step 3.
+- If yes: tell the user what is constrained, phrased as: "This decision makes [future goal] harder/impossible because [reason]." Ask whether to proceed or reconsider before continuing to Step 3.
 - If no: proceed — note "No known roadmap conflicts" in the ADR Consequences section.
 
-A decision that works today but forecloses a planned future direction is a problem, not a
-solution. Identify this *before* the ADR is written.
+A decision that works today but forecloses a planned future direction is a problem, not a solution. Identify this *before* the ADR is written.
 
 ## Step 3: Create the ADR
 
@@ -61,8 +57,7 @@ Does this decision supersede an existing ADR? If yes:
 
 ## Step 5: Link from claude-context.md and decisions index
 
-Add to the Key Decisions section of `docs/meta/claude-context.md`:
-`- [[ADR-NNN-decision-slug]] — one-line outcome`
+Add to the Key Decisions section of `docs/meta/claude-context.md`: `- [[ADR-NNN-decision-slug]] — one-line outcome`
 
 Also bump the `updated` date in `docs/meta/claude-context.md`.
 

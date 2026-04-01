@@ -80,8 +80,7 @@ Incomplete specs produce incomplete implementations. `docs-new` will not finish 
 
 ### 2b. Record decisions
 
-Any significant design decision made while writing the spec → `docs-decide` immediately.
-Don't defer.
+Any significant design decision made while writing the spec → `docs-decide` immediately. Don't defer.
 
 ### 2c. Link to milestone
 
