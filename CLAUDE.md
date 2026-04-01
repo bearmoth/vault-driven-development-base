@@ -10,6 +10,7 @@ The `docs/` directory is an Obsidian vault and the **single source of truth** fo
 
 ## Documentation Rules
 
+- Never hard-wrap prose. Each paragraph is one line — no manual line breaks within a sentence or paragraph. Let the editor soft-wrap.
 - All non-inline documentation lives in the vault. No ad-hoc notes elsewhere.
 - Every vault note must have complete frontmatter: `type`, `status`, `domain`, `updated`.
 - Link concepts with [[wikilinks]] inline as you write — not just in the Related section.

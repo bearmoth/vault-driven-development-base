@@ -17,6 +17,7 @@ updated: 2026-03-31
 
 ## Documentation Conventions
 
+- Never hard-wrap prose. Each paragraph is one line — no manual line breaks within a sentence or paragraph. Let the editor soft-wrap.
 - All non-inline documentation lives in `docs/`. No ad-hoc notes elsewhere.
 - Every vault note requires: `type`, `status`, `domain`, `updated`.
 - Wikilink concepts inline as you write — not just in the Related section.
