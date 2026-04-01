@@ -39,6 +39,9 @@ When reading large files, run `wc -l` first to check the line count. If the file
 | `docs-new` | When creating a spec, guide, runbook, reference, or milestone note |
 | `docs-review` | After completing any task — non-negotiable |
 | `docs-audit` | Periodically, or before any milestone |
+| `obsidian-cli` | When reading, searching, or resolving backlinks in vault notes — prefer over the `Read` tool when Obsidian is running, as it handles wikilink slug resolution natively |
+| `obsidian-markdown` | When creating or editing vault notes — ensures correct Obsidian-flavoured syntax, callouts, and frontmatter |
+| `obsidian-bases` | When creating or editing `.base` files for structured vault views |
 
 ## Done Checklist
 
