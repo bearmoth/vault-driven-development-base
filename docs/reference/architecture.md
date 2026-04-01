@@ -52,4 +52,4 @@ Run docs-init to populate this with your project's real architecture.
 ## Related
 
 - [[claude-context]] — project state and active focus
-- [[decisions/index]] — ADRs that explain why the architecture is shaped this way
+- [[decisions]] — ADRs that explain why the architecture is shaped this way

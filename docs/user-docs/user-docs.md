@@ -79,4 +79,4 @@ See [[conventions]] → Living Documentation Contract for the update rules.
 
 - [[workflow]] — Stage 5 Close updates user-docs when features ship
 - [[conventions]] — user-doc lifecycle rules
-- [[guides/index]] — developer and process guides (distinct from user-docs)
+- [[guides]] — developer and process guides (distinct from user-docs)

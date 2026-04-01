@@ -21,7 +21,7 @@ Scan the vault at docs/ for orphaned notes — notes with zero inbound wikilinks
 For each .md file (excluding docs/templates/), check whether its slug appears as a [[wikilink]] in any other note.
 
 These notes are intentionally standalone and must NOT be flagged as orphans:
-- All index pages (*/index.md)
+- All index pages (each named `<folder>/<folder>.md`, e.g. `concepts/concepts.md`)
 - docs/meta/claude-context.md, docs/meta/conventions.md, docs/meta/glossary.md
 - docs/product/roadmap.md
 - docs/reference/architecture.md, docs/reference/domain-glossary.md

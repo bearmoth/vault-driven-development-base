@@ -54,7 +54,7 @@ Search `docs/concepts/` for existing concepts that are related. Also check `docs
 
 ## Step 5: Update concepts index (new concepts only)
 
-If a **new** concept note was created, add an entry to `docs/concepts/index.md`:
+If a **new** concept note was created, add an entry to `docs/concepts/concepts.md`:
 - Under the appropriate section (`Seeds`, `Active Exploration`, or `Parked`) based on status/maturity
 - Format: `- [[concept-slug]] — one-line description`
 

@@ -5,7 +5,7 @@ domain: [meta]
 status: stable
 confidence: stable
 context: on-demand
-related: ["[[claude-context]]", "[[workflow]]", "[[decisions/index]]"]
+related: ["[[claude-context]]", "[[workflow]]", "[[decisions]]"]
 tags: [type/reference, status/stable, domain/meta]
 created: 2026-03-31
 updated: 2026-03-31
@@ -84,5 +84,5 @@ For currently active specs, also see [[claude-context]] → Active Specs.
 ## Related
 
 - [[workflow]] — how specs are created and closed
-- [[decisions/index]] — ADRs that document decisions made during spec + implementation
+- [[decisions]] — ADRs that document decisions made during spec + implementation
 - [[claude-context]] — live view of currently active specs

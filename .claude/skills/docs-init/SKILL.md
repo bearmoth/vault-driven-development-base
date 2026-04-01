@@ -76,12 +76,12 @@ Update `docs/product/roadmap.md`:
 The vault has index pages for each content area and reference stubs that need project-specific context. Update each:
 
 **Index pages** — replace the generic overview sentence with one project-specific sentence:
-- `docs/concepts/index.md` — describe what kinds of concepts this project is likely to explore
-- `docs/guides/index.md` — describe the developer/ops context for guides
-- `docs/reference/index.md` — describe what system components will have reference docs
-- `docs/specs/index.md` — describe the feature delivery cadence (milestones, sprints, etc.)
-- `docs/decisions/index.md` — no change needed; generic text is fine
-- `docs/user-docs/index.md` — if the project has external users, replace audience section headings with the real audiences gathered in Step 1 item 7; otherwise add a note that this project is internal-only and user-docs are not maintained
+- `docs/concepts/concepts.md` — describe what kinds of concepts this project is likely to explore
+- `docs/guides/guides.md` — describe the developer/ops context for guides
+- `docs/reference/reference.md` — describe what system components will have reference docs
+- `docs/specs/specs.md` — describe the feature delivery cadence (milestones, sprints, etc.)
+- `docs/decisions/decisions.md` — no change needed; generic text is fine
+- `docs/user-docs/user-docs.md` — if the project has external users, replace audience section headings with the real audiences gathered in Step 1 item 7; otherwise add a note that this project is internal-only and user-docs are not maintained
 
 **Reference stubs** — populate with real project content:
 - `docs/reference/architecture.md` — replace placeholder sections with the system shape from Step 1 item 8; add real components, initial data flow description, and known constraints
@@ -102,6 +102,6 @@ Tell the user:
   - `docs-new` — create specs, TDDs, guides, user-docs, reference docs, milestones
   - `docs-review` — close any task (non-negotiable)
   - `docs-audit` — periodic vault health check
-- Browsable vault entry points: `docs/concepts/index.md`, `docs/specs/index.md`, `docs/decisions/index.md`, `docs/guides/index.md`, `docs/user-docs/index.md`, `docs/reference/index.md`
+- Browsable vault entry points: `docs/concepts/concepts.md`, `docs/specs/specs.md`, `docs/decisions/decisions.md`, `docs/guides/guides.md`, `docs/user-docs/user-docs.md`, `docs/reference/reference.md`
 
 If this was an **adoption** (existing project), remind the user which sections to add to their existing `README.md` if missing: Quick Start, Usage, Documentation (→ docs/), Development Workflow, Contributing, License.

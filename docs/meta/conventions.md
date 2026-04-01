@@ -47,9 +47,9 @@ Different doc types have different relationships to time and system state:
 ### Index Pages
 
 Each content directory has a root index page:
-- [[concepts/index]] — browsable list of all concept notes by status and domain
-- [[guides/index]] — browsable list of all guides and runbooks
-- [[reference/index]] — browsable list of all reference docs
+- [[concepts]] — browsable list of all concept notes by status and domain
+- [[guides]] — browsable list of all guides and runbooks
+- [[reference]] — browsable list of all reference docs
 
 When you add a new note to any of these directories, add an entry to the corresponding index page in the same commit. Index pages must always reflect the current contents of their directory.
 

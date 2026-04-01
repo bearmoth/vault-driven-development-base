@@ -5,7 +5,7 @@ domain: [meta]
 status: stable
 confidence: stable
 context: on-demand
-related: ["[[claude-context]]", "[[workflow]]", "[[specs/index]]"]
+related: ["[[claude-context]]", "[[workflow]]", "[[specs]]"]
 tags: [type/reference, status/stable, domain/meta]
 created: 2026-03-31
 updated: 2026-03-31
@@ -63,5 +63,5 @@ ADRs are never edited. If a decision changes, a new ADR supersedes the old one. 
 ## Related
 
 - [[workflow]] — when and how ADRs are created (docs-decide)
-- [[specs/index]] — specs that prompted key decisions
+- [[specs]] — specs that prompted key decisions
 - [[claude-context]] — Key Decisions section (live view of impactful ADRs)

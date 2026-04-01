@@ -61,11 +61,11 @@ Add to the Key Decisions section of `docs/meta/claude-context.md`: `- [[ADR-NNN-
 
 Also bump the `updated` date in `docs/meta/claude-context.md`.
 
-Add to `docs/decisions/index.md`:
+Add to `docs/decisions/decisions.md`:
 - Under **Chronological** (newest first): `- [[ADR-NNN-decision-slug]] — one-line outcome *(YYYY-MM-DD)*`
 - Under **By Domain** → relevant domain section: same entry
 
-Bump `updated` on `docs/decisions/index.md`.
+Bump `updated` on `docs/decisions/decisions.md`.
 
 ## Step 6: Confirm
 

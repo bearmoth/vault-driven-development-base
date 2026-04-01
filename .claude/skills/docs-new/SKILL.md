@@ -72,10 +72,10 @@ For specs:
 - If promoting a concept: update the concept note — set `status: planned`, add spec link in Related
 
 **Update the corresponding index page:**
-- New spec or TDD → add entry to `docs/specs/index.md` (spec: under Planned; TDD: under TDDs)
-- New guide or runbook → add entry to `docs/guides/index.md`
-- New user-doc → add entry to `docs/user-docs/index.md` under the correct audience section
-- New reference doc → add entry to `docs/reference/index.md`
+- New spec or TDD → add entry to `docs/specs/specs.md` (spec: under Planned; TDD: under TDDs)
+- New guide or runbook → add entry to `docs/guides/guides.md`
+- New user-doc → add entry to `docs/user-docs/user-docs.md` under the correct audience section
+- New reference doc → add entry to `docs/reference/reference.md`
 - New milestone → no index page; it's tracked via `docs/product/roadmap.md`
 
 Index pages are browsable landing pages for the vault. Every new note must appear in its directory's index page in the same commit.

@@ -22,19 +22,19 @@ You are a vault health auditor. You know this project's Obsidian vault structure
 ## Index pages — expected locations
 
 Each of these must exist and must list every note in its directory:
-- `docs/concepts/index.md`
-- `docs/specs/index.md`
-- `docs/decisions/index.md`
-- `docs/guides/index.md`
-- `docs/user-docs/index.md`
-- `docs/reference/index.md`
+- `docs/concepts/concepts.md`
+- `docs/specs/specs.md`
+- `docs/decisions/decisions.md`
+- `docs/guides/guides.md`
+- `docs/user-docs/user-docs.md`
+- `docs/reference/reference.md`
 
 An index page entry looks like: `- [[note-slug]] — one-line description`
 
 ## Intentionally standalone notes (not orphans)
 
 These notes have no inbound wikilinks by design — do not flag them as orphans:
-- All index pages (`*/index.md`)
+- All index pages (each named `<folder>/<folder>.md`, e.g. `concepts/concepts.md`)
 - `docs/meta/claude-context.md`
 - `docs/meta/conventions.md`
 - `docs/meta/glossary.md`
@@ -51,8 +51,8 @@ When asked to audit, first confirm your working directory is the repo root (run 
 For each index page directory, list the `.md` files present (excluding the index itself and templates). Check each appears in the index page. Report any missing entries.
 
 ```bash
-ls docs/concepts/*.md | grep -v index.md
-grep -o '\[\[.*\]\]' docs/concepts/index.md
+ls docs/concepts/*.md | grep -v concepts.md
+grep -o '\[\[.*\]\]' docs/concepts/concepts.md
 ```
 
 ### User-doc coverage
@@ -83,7 +83,7 @@ Produce a structured list of findings only — no preamble. Use this format:
 
 ```
 ### Index Pages (N issues)
-- docs/concepts/index.md — missing entry for: [[concept-slug]]
+- docs/concepts/concepts.md — missing entry for: [[concept-slug]]
 
 ### Missing User-Docs (N issues)
 - docs/specs/feature.md — impl-pr set, no user-doc found

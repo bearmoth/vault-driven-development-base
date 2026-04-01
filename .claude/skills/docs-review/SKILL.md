@@ -52,11 +52,11 @@ Did the task produce anything worth documenting?
 Invoke the relevant skill immediately — do not defer unless you need information from the user.
 
 **After creating any new note, update the corresponding index page:**
-- New concept note → add entry to `docs/concepts/index.md`
-- New spec or TDD → add entry to `docs/specs/index.md`
-- New guide or runbook → add entry to `docs/guides/index.md`
-- New user-doc → add entry to `docs/user-docs/index.md`
-- New reference doc → add entry to `docs/reference/index.md`
+- New concept note → add entry to `docs/concepts/concepts.md`
+- New spec or TDD → add entry to `docs/specs/specs.md`
+- New guide or runbook → add entry to `docs/guides/guides.md`
+- New user-doc → add entry to `docs/user-docs/user-docs.md`
+- New reference doc → add entry to `docs/reference/reference.md`
 
 **User-facing behaviour check:** Did this task change anything a user, API consumer, or admin would experience? If yes, create or update the relevant user-doc in `docs/user-docs/`. A missing or stale user-doc is not "good enough for now" — it is a defect.
 
@@ -72,7 +72,7 @@ Index pages are the entry point for human readers browsing the vault. They must 
 - **Active Specs** — remove `implemented` specs; add any new in-progress specs
 - **Key Decisions** — add any new ADRs from this task
 - **`updated`** — set to today
-- **Specs index** — if a spec moved to `implemented`, move its entry in `docs/specs/index.md` from In Progress/Planned → the Implemented section under the correct milestone
+- **Specs index** — if a spec moved to `implemented`, move its entry in `docs/specs/specs.md` from In Progress/Planned → the Implemented section under the correct milestone
 
 **Milestone close:** If this is the last spec in a milestone:
 1. Set milestone `status: implemented`
